@@ -5,7 +5,7 @@ import regex as re
 
 
 def determine_magic_item():
-    result = 14
+    result = Dice.d66()
     print(f'Dice result is {result}')
     magic_item = ''
 
@@ -387,11 +387,19 @@ def determine_magic_armour():
 
 
 def determine_magic_weapon():
-    special_weapons_list = [
-        "Νοήμον Ξίφος",
-    ]
     magic_weapons_attribute_list = [
+        "Καταραμένο",
+        "Καταραμένο",
         "Ειδικό",
+        'Μαγικό',
+        'Μαγικό',
+        'Μαγικό',
+        'Μαγικό',
+        'Μαγικό',
+        'Μαγικό',
+        'Μαγικό',
+        'Μαγικό'
+
     ]
     magic_weapons_type_list = [
         "Ακόντιο",
@@ -444,17 +452,31 @@ def determine_magic_weapon():
         '+3',
         '+3'
     ]
+    special_weapons_list = [
+        'Αυτόματη Τζάγγρα',
+        'Βαρδούκι της Σύνθλιψης',
+        'Βασιλικό Φαλξ',
+        'Γιαταγάνι του Ουν Ουμ', 'Γοργό Ξίφος',
+        'Γυάλινο Ξίφος', 'Επανερχόμενο Τσεκούρι', 'Έχιδνα', 'Κεραύνιο Ακόντιο', 'Κίτρινο Δόρυ', 'Κρατερό Όπλο',
+        'Κρατερό Όπλο', 'Κρατερό Όπλο', 'Κρατερό Όπλο', 'Κρατερό Όπλο',
+        'Μαύρο Τόξο', 'Νέρτερο Ξίφος', 'Νοήμον Ξίφος', 'Νοήμον Ξίφος', 'Νοήμον Ξίφος', 'Νοήμον Ξίφος', 'Νοήμον Ξίφος',
+        'Ουρά του Διαβόλου', 'Παγερό Ξίφος', 'Σεληνιακό Ξίφος',
+        'Σκόθειο Τόξο', 'Σφαγέας', 'Σφαγέας', 'Σφαγέας', 'Σφαγέας', 'Σφαγέας', 'Φλεγόμενο Ξίφος', 'Φλεγόμενο Ξίφος',
+        'Φονικό Βέλος',
+    ]
+
     magic_weapon_herculean = ''
     intelligent_sword = ''
+    slayer_sword = ''
+    killer_arrow = ''
 
-    magic_weapon_type = 'Ειδικό'  # random.choice(magic_weapons_attribute_list)
+    magic_weapon_type = random.choice(magic_weapons_attribute_list)
     magic_weapon = ''
     if magic_weapon_type == 'Ειδικό':
         magic_weapon = random.choice(special_weapons_list)
         if magic_weapon == 'Κρατερό Όπλο':
             magic_weapon_herculean = 'Κρατερό: ' + random.choice(magic_weapons_type_list) + ' ' + random.choice(
                 magic_weapon_bonus)
-            print(magic_weapon_herculean)
         elif magic_weapon == "Νοήμον Ξίφος":
             magic_weapon_spells_counter = 0
 
@@ -611,18 +633,48 @@ def determine_magic_weapon():
                 ambition = 'Δεν έχει κάποια ειδική επιδίωξη.'
 
             intelligent_sword = f'Νοήμον Ξίφος {random.choice(intelligent_sword_weapon_bonus)} Δυνάμεις: {powers}. Ξόρκια: {spells}. {extra_language} {ambition} {roll_intelligent_sword_personality()}'
+        elif magic_weapon == 'Σφαγέας':
+            def determine_slayer_sword():
+                slayer_sword_list = ['Χοιροσφάχτης',
+                                     'Γιγαντομάχος', 'Δρακοντοκτόνος', 'Θηριογδάρτης', 'Δαιμονοφάγος', 'Οστεοθραύστης',
+                                     'Ολεσήνωρ', 'Μαγοκτόνος']
+                slayer_sword = random.choice(slayer_sword_list)
+                return slayer_sword
+
+            determine_slayer_sword()
+        elif magic_weapon == 'Φονικό Βέλος':
+            def killer_arrow():
+                killer_arrow_list = ['Αγριάνθρωποι', 'Αγριάνθρωποι', 'Άνθρωποι', 'Άνθρωποι', 'Νέρτεροι', 'Νέρτεροι',
+                                     'Γίγαντες', 'Γίγαντες', 'Γκόλεμ', 'Γκόλεμ', 'Δαίμονες', 'Δαίμονες',
+                                     'Δαιμονογενείς', 'Δαιμονογενείς', 'Δράκοντες', 'Δράκοντες', 'Ερπετά', 'Ερπετά',
+                                     'Ευγενείς', 'Ευγενείς', 'Θαλάσσια όντα', 'Θαλάσσια όντα', 'Θηλαστικά', 'Θηλαστικά',
+                                     'Θηριόμορφοι', 'Θηριόμορφοι', 'Κοβαλογενείς', 'Κοβαλογενείς', 'Κυνοκέφαλοι',
+                                     'Κυνοκέφαλοι', 'Μάγοι', 'Μάγοι', 'Πτηνά', 'Πτηνά', 'Στοιχειακά όντα',
+                                     'Στοιχειακά όντα']
+                killer_arrow = random.choice(killer_arrow_list)
+                return killer_arrow
+
+            killer_arrow()
+
 
 
     elif magic_weapon_type == 'Μαγικό':
         magic_weapon = random.choice(magic_weapons_type_list) + ' ' + random.choice(magic_weapon_bonus)
     elif magic_weapon_type == "Καταραμένο":
         magic_weapon = f"{magic_weapon_type}: {random.choice(magic_weapons_type_list)}"
+
     if magic_weapon_herculean:
         print(magic_weapon_herculean)
         return magic_weapon_herculean
     elif intelligent_sword:
         print(intelligent_sword)
-        return (intelligent_sword)
+        return intelligent_sword
+    elif slayer_sword:
+        print(slayer_sword)
+        return slayer_sword
+    elif killer_arrow:
+        print(killer_arrow)
+        return killer_arrow
     else:
         print(magic_weapon)
         return magic_weapon
@@ -640,5 +692,3 @@ elif magic_item == 'Μαγική θωράκιση':
     determine_magic_armour()
 elif magic_item == 'Μαγικό όπλο':
     determine_magic_weapon()
-
-# ToDo: Νοήμοντα Ξίφη, Σφαγείς
