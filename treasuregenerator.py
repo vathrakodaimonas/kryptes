@@ -1,6 +1,5 @@
-from generators import CoinGenerator
-from generators import GemGenerator
-from generators import JewelryRoller
+from generators.expendables import *
+from generators.magic_items import *
 
 
 if __name__ == "__main__":
@@ -12,3 +11,7 @@ if __name__ == "__main__":
 
     jewelry_roller = JewelryRoller()
     jewelry_roller.roll_and_print()
+
+    magic_item_roller = MagicItemGenerator()
+    magic_item_roller.determine_magic_item()
+    b=1
