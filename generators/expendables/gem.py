@@ -87,7 +87,3 @@ class GemGenerator:
                 self.print_gems(8)
             else:
                 print("No gems")
-
-
-a = GemGenerator().roll_gem()
-b=1

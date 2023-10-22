@@ -3,8 +3,9 @@ import random
 import regex as re
 
 
-def determine_magic_rod():
-    magic_rods_list = [
+class MagicRodGenerator():
+    def __init__(self):
+        self.magic_rods_list = [
         'Ραβδί Ακύρωσης',
         'Ραβδί Ανίχνευσης Εχθρών',
         'Ραβδί Ανίχνευσης Μαγείας',
@@ -27,14 +28,16 @@ def determine_magic_rod():
         'Ιαματική Ράβδος',
         'Μεταβαλλόμενη Ράβδος'
     ]
-    magic_rod = ' '.join(random.choices(magic_rods_list,
-                                        weights=[0.05, 0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.1, 0.1, 0.2, 0.1, 0.1, 0.05,
-                                                 0.05, 0.05, 0.1, 0.1, 0.1, 0.05, 0.1, 0.05]
-                                        ))
-    magic_wand = re.findall(r'^\S{5}', magic_rod)
-    if magic_wand[0] == 'Ραβδί':
-        number_of_charges = random.randint(3, 18)
-    else:
-        number_of_charges = random.randint(6, 37)
-    print(f'{magic_rod} με {number_of_charges} χρήσεις')
-    return magic_rod
+        self.magic_rod = ''
+    def determine_magic_rod(self):
+
+        self.magic_rod = ' '.join(random.choices(self.magic_rods_list,
+                                            weights=[0.05, 0.1, 0.1, 0.1, 0.1, 0.1, 0.05, 0.1, 0.1, 0.2, 0.1, 0.1, 0.05,
+                                                     0.05, 0.05, 0.1, 0.1, 0.1, 0.05, 0.1, 0.05]
+                                            ))
+        magic_wand = re.findall(r'^\S{5}', self.magic_rod)
+        if magic_wand[0] == 'Ραβδί':
+            number_of_charges = random.randint(3, 18)
+        else:
+            number_of_charges = random.randint(6, 37)
+        return f'{self.magic_rod} με {number_of_charges} χρήσεις'
