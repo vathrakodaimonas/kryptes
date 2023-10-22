@@ -1,4 +1,5 @@
 import random
+
 import regex as re
 
 
@@ -37,6 +38,3 @@ def determine_magic_rod():
         number_of_charges = random.randint(6, 37)
     print(f'{magic_rod} με {number_of_charges} χρήσεις')
     return magic_rod
-
-
-determine_magic_rod()

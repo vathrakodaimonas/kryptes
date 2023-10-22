@@ -1,8 +1,11 @@
 from generators.utils.dice import Dice
+from generators.magic_items import *
+
+magic_item = ''
+
 def determine_magic_item():
     result = Dice.d66()
     print(f'Dice result is {result}')
-    magic_item = ''
 
     if result in range(11, 24):
         magic_item = 'Μαγικό όπλο'
@@ -19,7 +22,6 @@ def determine_magic_item():
     elif result in range(65, 67):
         magic_item = 'Διάφορα'
     print(magic_item)
-    return magic_item
 
     if magic_item == 'Διάφορα':
         determine_misc_magic_item()
@@ -33,3 +35,5 @@ def determine_magic_item():
         determine_magic_armour()
     elif magic_item == 'Μαγικό όπλο':
         determine_magic_weapon()
+
+determine_magic_item()

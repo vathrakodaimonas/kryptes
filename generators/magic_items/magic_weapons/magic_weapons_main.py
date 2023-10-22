@@ -1,4 +1,5 @@
 import random
+from generators.utils.dice import Dice
 def determine_magic_weapon():
     magic_weapons_attribute_list = [
         "Καταραμένο",

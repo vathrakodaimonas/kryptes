@@ -1,6 +1,8 @@
+import random
+
 from generators.utils.dice import Dice
 from treasuretype import define_treasure_type
-import random
+
 
 class GemGenerator:
     def __init__(self):
@@ -42,7 +44,7 @@ class GemGenerator:
         if self.treasure_type is None:
             self.treasure_type = define_treasure_type()
 
-        result = Dice.twoD6()
+        result = Dice.two_D6()
         print(f"Dice roll is {result}")
 
         if self.treasure_type in range(0, 2):

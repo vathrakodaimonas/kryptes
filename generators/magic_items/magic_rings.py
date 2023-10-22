@@ -31,6 +31,3 @@ def determine_magic_ring():
                           )
     print(magic_ring)
     return magic_ring
-
-
-determine_magic_ring()

@@ -46,6 +46,3 @@ def determine_misc_magic_item():
                                               ))
     print(misc_magic_item)
     return misc_magic_item
-
-
-determine_misc_magic_item()

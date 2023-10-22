@@ -1,5 +1,8 @@
+import random
+
 from generators.utils.dice import Dice
 from treasuretype import define_treasure_type
+
 
 class JewelryRoller:
     def __init__(self):
@@ -36,7 +39,7 @@ class JewelryRoller:
         elif prices_array == self.price_range[5]:
             jewel_value = f"αξίας {prices_array * random.randint(1, 6)} διναρίων {self.jewelry_materials[5]}"
 
-        jewelry_mass = Dice.twoD6()
+        jewelry_mass = Dice.two_D6()
         jewelry_kilos = ""
 
         if 2 <= jewelry_mass <= 7:
@@ -58,7 +61,7 @@ class JewelryRoller:
             print(self.roll_jewel())
 
     def roll_and_print(self):
-        result = Dice.twoD6()
+        result = Dice.two_D6()
         print(f"Dice roll is {result}")
 
         num_jewels = 0
@@ -97,4 +100,3 @@ class JewelryRoller:
 
         print(f"Number of jewels: {num_jewels}")
         self.print_jewels(num_jewels)
-
