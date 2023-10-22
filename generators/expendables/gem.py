@@ -1,4 +1,4 @@
-from dice import Dice
+from generators.utils.dice import Dice
 from treasuretype import define_treasure_type
 import random
 
