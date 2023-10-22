@@ -1,4 +1,6 @@
 import random
+
+
 def determine_magic_potion():
     potion_container_list = [
         'Γυάλινο',
@@ -59,7 +61,6 @@ def determine_magic_potion():
 
     magic_potions_list = [
         'Αντίδοτο',
-        'Αντίδοτο',
         'Απόσταγμα Παγωνιάς',
         'Βασιλικό Ύδωρ',
         'Δηλητήριο',
@@ -76,29 +77,28 @@ def determine_magic_potion():
         'Φίλτρο της Αράχνης',
         'Φίλτρο Ατρωσιμότητας',
         'Φίλτρο Ελέγχου',
-        'Φίλτρο Ελέγχου',
-        'Φίλτρο Ελέγχου',
-        'Φίλτρο Ελέγχου',
-        'Φίλτρο Ελέγχου',
         'Φίλτρο Ζωτικότητας',
         'Φίλτρο Ηρωισμού',
-        'Φίλτρο Ίασης',
         'Φίλτρο Ίασης',
         'Φίλτρο Μεγέθυνσης',
         'Φίλτρο Μεταμόρφωσης',
         'Φίλτρο Οξείας Όρασης',
         'Φίλτρο Όρασης Αοράτων',
-        'Φίλτρο Όρασης Αοράτων',
         'Φίλτρο Πτήσης',
         'Φίλτρο Σμίκρυνσης',
         'Φίλτρο Στοιχειακής Αντίστασης',
-        'Φίλτρο Στοιχειακής Αντίστασης',
         'Φίλτρο Ταχύτητας',
         'Φίλτρο Τηλεπάθειας',
-        'Φίλτρο Υποβρύχιας Αναπνοής',
         'Φίλτρο Υποβρύχιας Αναπνοής'
     ]
-    magic_potion = random.choice(magic_potions_list)
+
+    magic_potion = ' '.join(
+        random.choices(magic_potions_list, weights=[0.05, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
+                                                    0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.05, 0.03, 0.03, 0.05, 0.03,
+                                                    0.03,
+                                                    0.03, 0.05, 0.03, 0.03, 0.05, 0.03, 0.03, 0.05]
+
+                       ))
     magic_potion_properties = f'{random.choice(potion_container_list)} δοχείο, χρώμα {random.choice(potion_colour_list).lower()}. {random.choice(potion_other_list)}, οσμή/γεύση: {random.choice(potion_odour_list).lower()}'
     print(magic_potion + '. ' + magic_potion_properties)
     return magic_potion

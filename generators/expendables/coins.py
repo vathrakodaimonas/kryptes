@@ -28,9 +28,9 @@ class CoinGenerator:
         self.gold_coins()
 
     def bronze_coins(self):
-        result = Dice.twoD6()
+        result = Dice.two_D6()
         print(f'Dice result: {result}')
-        one_d6 = int(Dice.oneD6())
+        one_d6 = int(Dice.one_D6())
         if result >= 8:
             self.bronze_coins_sum = one_d6 * self.bronze_coins_list[self.treasure_type]
             print(f'Bronze coins: {self.bronze_coins_sum}')
@@ -40,9 +40,9 @@ class CoinGenerator:
         return self.bronze_coins_sum
 
     def silver_coins(self):
-        result = Dice.twoD6()
+        result = Dice.two_D6()
         print(f'Dice result: {result}')
-        one_d6 = int(Dice.oneD6())
+        one_d6 = int(Dice.one_D6())
         if result >= 8:
             self.silver_coins_sum = one_d6 * self.silver_coins_list[self.treasure_type]
             print(f'Silver coins: {self.silver_coins_sum}')
@@ -52,9 +52,9 @@ class CoinGenerator:
         return self.silver_coins_sum
 
     def gold_coins(self):
-        result = Dice.twoD6()
+        result = Dice.two_D6()
         print(f'Dice result: {result}')
-        one_d6 = int(Dice.oneD6())
+        one_d6 = int(Dice.one_D6())
         if result >= 9:
             self.gold_coins_sum = one_d6 * self.gold_coins_list[self.treasure_type]
             print(f'Gold coins: {self.gold_coins_sum}')

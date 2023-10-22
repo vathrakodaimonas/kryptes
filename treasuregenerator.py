@@ -1,6 +1,6 @@
-from generators.expendables.coins import CoinGenerator
-from generators.expendables.gem import GemGenerator
-from generators.expendables.jewels import JewelryRoller
+from generators import CoinGenerator
+from generators import GemGenerator
+from generators import JewelryRoller
 
 
 if __name__ == "__main__":
