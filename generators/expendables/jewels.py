@@ -1,7 +1,6 @@
 import random
 
 from generators.utils.dice import Dice
-from treasuretype import define_treasure_type
 
 
 class JewelryRoller:
@@ -20,7 +19,6 @@ class JewelryRoller:
             "από πετραδοστόλιστο χρυσάφι",
             "από πετραδοστόλιστη πλατίνα"
         ]
-        self.treasure_type = define_treasure_type()
 
     def roll_jewel(self):
         prices_array = random.choice(self.price_range)
@@ -56,47 +54,48 @@ class JewelryRoller:
         jewel = f"{jewelry_kilos} {jewel_value}"
         return jewel
 
-    def print_jewels(self, num_jewels):
-        for _ in range(num_jewels):
-            print(self.roll_jewel())
 
-    def roll_and_print(self):
+    def generate_jewels(self, treasure_type: int):
+        print(f'Treasure type is {treasure_type}')
         result = Dice.two_D6()
         print(f"Dice roll is {result}")
 
         num_jewels = 0
-        if self.treasure_type == 0 and result >= 11:
-            num_jewels = 1
-        elif self.treasure_type == 1 and result >= 11:
+        if treasure_type == 0 and result >= 11:
+            num_jewels = 1 * Dice.one_D6()
+        elif treasure_type == 1 and result >= 11:
             num_jewels = random.randint(1, 3)
-        elif self.treasure_type == 2 and result >= 10:
+        elif treasure_type == 2 and result >= 10:
             num_jewels = random.randint(1, 3)
-        elif self.treasure_type == 3 and result >= 9:
+        elif treasure_type == 3 and result >= 9:
             num_jewels = random.randint(1, 3)
-        elif self.treasure_type == 4 and result >= 9:
+        elif treasure_type == 4 and result >= 9:
             num_jewels = random.randint(1, 5)
-        elif self.treasure_type == 5 and result >= 9:
+        elif treasure_type == 5 and result >= 9:
             num_jewels = random.randint(2, 6)
-        elif self.treasure_type == 6 and result >= 9:
+        elif treasure_type == 6 and result >= 9:
             num_jewels = random.randint(2, 7)
-        elif self.treasure_type == 7 and result >= 8:
+        elif treasure_type == 7 and result >= 8:
             num_jewels = random.randint(2, 7)
-        elif self.treasure_type == 8 and result >= 8:
+        elif treasure_type == 8 and result >= 8:
             num_jewels = random.randint(3, 8)
-        elif self.treasure_type == 9 and result >= 8:
+        elif treasure_type == 9 and result >= 8:
             num_jewels = random.randint(4, 9)
-        elif self.treasure_type == 10 and result >= 8:
+        elif treasure_type == 10 and result >= 8:
             num_jewels = random.randint(3, 18)
-        elif self.treasure_type == 11 and result >= 8:
+        elif treasure_type == 11 and result >= 8:
             num_jewels = random.randint(4, 24)
-        elif self.treasure_type == 12 and result >= 7:
+        elif treasure_type == 12 and result >= 7:
             num_jewels = random.randint(4, 24)
-        elif self.treasure_type == 13 and result >= 7:
+        elif treasure_type == 13 and result >= 7:
             num_jewels = random.randint(5, 30)
-        elif self.treasure_type == 14 and result >= 7:
+        elif treasure_type == 14 and result >= 7:
             num_jewels = random.randint(6, 36)
-        elif self.treasure_type == 15 and result >= 7:
+        elif treasure_type == 15 and result >= 7:
             num_jewels = random.randint(8, 48)
 
-        print(f"Number of jewels: {num_jewels}")
-        self.print_jewels(num_jewels)
+        jewel_list = []
+        for _ in range(num_jewels):
+            jewel = self.roll_jewel()
+            jewel_list.append(jewel)
+        return jewel_list

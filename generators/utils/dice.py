@@ -15,4 +15,4 @@ class Dice:
         tens_digit = random.randint(1, 6)
         ones_digit = random.randint(1, 6)
         result = int(str(tens_digit) + str(ones_digit))
-        return result
+        return int(result)
