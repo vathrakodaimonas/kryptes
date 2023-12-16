@@ -1,5 +1,5 @@
 from generators.utils.dice import Dice
-from treasuretype import define_treasure_type
+
 
 class CoinGenerator:
     def __init__(self):
@@ -14,52 +14,28 @@ class CoinGenerator:
         self.gold_coins_list = [
             1, 10, 20, 30, 50, 70, 90, 120, 150, 180, 250, 300, 400, 500, 750, 1000,
         ]
-        self.bronze_coins_sum = 0
-        self.silver_coins_sum = 0
-        self.gold_coins_sum = 0
-        self.treasure_type = None
 
-    def generate_coins(self):
-        if self.treasure_type is None:
-            self.treasure_type = define_treasure_type()
+    def generate_coins(self, treasure_type: int):
+        coins = []
+        # bronze coins
+        result_bronze_coins = Dice.two_D6()
+        if result_bronze_coins >= 8:
+            bronze_coins = f'Bronze coins: {Dice.one_D6() * self.bronze_coins_list[treasure_type]}'
+            if bronze_coins:
+                coins.append(bronze_coins)
 
-        self.bronze_coins()
-        self.silver_coins()
-        self.gold_coins()
+        # silver coins
+        silver_coins_result = Dice.two_D6()
+        if silver_coins_result >= 8:
+            silver_coins = f'Silver coins: {Dice.one_D6() * self.silver_coins_list[treasure_type]}'
+            if silver_coins:
+                coins.append(silver_coins)
 
-    def bronze_coins(self):
-        result = Dice.two_D6()
-        print(f'Dice result: {result}')
-        one_d6 = int(Dice.one_D6())
-        if result >= 8:
-            self.bronze_coins_sum = one_d6 * self.bronze_coins_list[self.treasure_type]
-            print(f'Bronze coins: {self.bronze_coins_sum}')
-        else:
-            self.bronze_coins_sum = 0
-            print('No bronze coins')
-        return self.bronze_coins_sum
+        # silver coins
+        gold_coins_result = Dice.two_D6()
+        if gold_coins_result >= 9:
+            gold_coins = f'Gold coins: {Dice.one_D6() * self.silver_coins_list[treasure_type]}'
+            if gold_coins:
+                coins.append(gold_coins)
 
-    def silver_coins(self):
-        result = Dice.two_D6()
-        print(f'Dice result: {result}')
-        one_d6 = int(Dice.one_D6())
-        if result >= 8:
-            self.silver_coins_sum = one_d6 * self.silver_coins_list[self.treasure_type]
-            print(f'Silver coins: {self.silver_coins_sum}')
-        else:
-            self.silver_coins_sum = 0
-            print('No silver coins')
-        return self.silver_coins_sum
-
-    def gold_coins(self):
-        result = Dice.two_D6()
-        print(f'Dice result: {result}')
-        one_d6 = int(Dice.one_D6())
-        if result >= 9:
-            self.gold_coins_sum = one_d6 * self.gold_coins_list[self.treasure_type]
-            print(f'Gold coins: {self.gold_coins_sum}')
-        else:
-            self.gold_coins_sum = 0
-            print('No gold coins')
-        return self.gold_coins_sum
-
+        return coins

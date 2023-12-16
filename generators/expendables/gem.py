@@ -1,7 +1,6 @@
 import random
 
 from generators.utils.dice import Dice
-from treasuretype import define_treasure_type
 
 
 class GemGenerator:
@@ -36,54 +35,64 @@ class GemGenerator:
 
         return gem
 
-    def print_gems(self, num_gems):
-        for _ in range(num_gems):
-            print(self.roll_gem())
-
-    def generate_gems(self):
-        if self.treasure_type is None:
-            self.treasure_type = define_treasure_type()
-
+    def generate_gems(self, treasure_type: int):
         result = Dice.two_D6()
-        print(f"Dice roll is {result}")
+        gem_list = []
 
-        if self.treasure_type in range(0, 2):
+        if treasure_type in range(0, 2):
             if result >= 11:
-                self.print_gems(1)
+                for _ in range(Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type == 2:
+                pass
+        elif treasure_type == 2:
             if result >= 10:
-                self.print_gems(1)
+                for _ in range(Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type in range(3, 8):
+                pass
+        elif treasure_type in range(3, 8):
             if result >= 9:
-                self.print_gems(2)
+                for _ in range(2 * Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type == 8:
+                pass
+        elif treasure_type == 8:
             if result >= 8:
-                self.print_gems(3)
+                for _ in range(3 * Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type == 9:
+                pass
+        elif treasure_type == 9:
             if result >= 8:
-                self.print_gems(4)
+                for _ in range(4 * Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type == 10:
+                pass
+        elif treasure_type == 10:
             if result >= 8:
-                self.print_gems(5)
+                for _ in range(5 * Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type == 11:
+                pass
+        elif treasure_type == 11:
             if result >= 8:
-                self.print_gems(6)
+                for _ in range(6 * Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
-        elif self.treasure_type in range(12, 16):
+                pass
+        elif treasure_type in range(12, 16):
             if result >= 7:
-                self.print_gems(8)
+                for _ in range(7 * Dice.one_D6()):
+                    gem = self.roll_gem()
+                    gem_list.append(gem)
             else:
-                print("No gems")
+                pass
+        return gem_list
