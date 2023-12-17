@@ -104,4 +104,4 @@ class MagicPotionGenerator:
                            ))
         magic_potion_properties = f'{random.choice(self.potion_container_list)} δοχείο, χρώμα {random.choice(self.potion_colour_list).lower()}. {random.choice(self.potion_other_list)}, οσμή/γεύση: {random.choice(self.potion_odour_list).lower()}'
         self.magic_potion = self.magic_potion + '. ' + magic_potion_properties
-        return self.magic_potion + '. ' + magic_potion_properties
+        return self.magic_potion

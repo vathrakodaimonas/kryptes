@@ -1,7 +1,7 @@
 import random
 
 
-class HerculeanWeaponGenerator():
+class HerculeanWeaponGenerator:
 
     def __init__(self):
         self.magic_weapons_type_list = ['Ακόντιο', 'Σφύρα', 'Απελατίκι', 'Ράβδος', 'Σαλίβα', 'Ρομφαία', 'Λογχοπέλεκυς',
@@ -21,3 +21,5 @@ class HerculeanWeaponGenerator():
             random.choices(
                 self.magic_weapon_bonus, weights=[0.6, 0.25,
                                                   0.15]))
+
+        return self.magic_weapon_herculean

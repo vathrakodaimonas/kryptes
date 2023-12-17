@@ -2,7 +2,7 @@ import random
 from generators.utils.dice import Dice
 
 
-class IntelligentSwordGenerator():
+class IntelligentSwordGenerator:
 
     def __init__(self):
         self.magic_weapon_spells_counter = 0

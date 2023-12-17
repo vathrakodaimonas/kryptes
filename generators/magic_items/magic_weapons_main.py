@@ -1,5 +1,5 @@
 import random
-from generators.magic_items.magic_weapons import *
+from generators.magic_items.magic_weapons.special_weapons import SpecialWeaponGenerator
 
 
 class MagicWeaponGenerator:

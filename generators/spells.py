@@ -188,10 +188,10 @@ class SpellGenerator:
         elif treasure_map:
             spell_list.append('Χάρτης θησαυρού')
 
-        return f'Περγαμηνή: {spell_list}'
+        return f'Περγαμηνή: {", ".join(spell_list)}'
 
     def generate_grimoire(self):
-        magic_user_level = int(input('Select magic user level(1-12) '))
+        magic_user_level = int(input('Select magic user level (1-12) '))
         grimoire_spells = []
         if magic_user_level == 1:
             grimoire_spells.append(random.choice(self.first_level_spells))
@@ -282,9 +282,3 @@ class SpellGenerator:
             grimoire_spells.append(random.choice(self.sixth_level_spells))
 
         return f'Γριμόριο: {grimoire_spells}'
-
-
-if __name__ == '__main__':
-    a = SpellGenerator()
-    b = a.generate_grimoire()
-    c = 1

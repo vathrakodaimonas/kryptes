@@ -54,11 +54,9 @@ class JewelryRoller:
         jewel = f"{jewelry_kilos} {jewel_value}"
         return jewel
 
-
     def generate_jewels(self, treasure_type: int):
-        print(f'Treasure type is {treasure_type}')
+
         result = Dice.two_D6()
-        print(f"Dice roll is {result}")
 
         num_jewels = 0
         if treasure_type == 0 and result >= 11:
