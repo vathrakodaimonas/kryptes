@@ -2,7 +2,7 @@ import random
 
 from generators.utils.dice import Dice
 from generators.magic_items import *
-from generators.utils.spells import SpellGenerator
+from generators.spells import SpellGenerator
 
 
 class MagicItemGenerator():
