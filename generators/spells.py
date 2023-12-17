@@ -187,6 +187,7 @@ class SpellGenerator:
             spell_list.append('Περγαμηνή προστασίας από μαγεία')
         elif treasure_map:
             spell_list.append('Χάρτης θησαυρού')
+        # ToDo: add details for treasure map
 
         return f'Περγαμηνή: {", ".join(spell_list)}'
 
@@ -281,4 +282,4 @@ class SpellGenerator:
                 grimoire_spells.append(random.choice(self.fifth_level_spells))
             grimoire_spells.append(random.choice(self.sixth_level_spells))
 
-        return f'Γριμόριο: {grimoire_spells}'
+        return f'Γριμόριο: {", ".join(grimoire_spells)}'

@@ -93,6 +93,7 @@ class MagicPotionGenerator:
         ]
         self.magic_potion = ''
 
+# ToDo: Add potion of control details
     def determine_magic_potion(self):
         self.magic_potion = ' '.join(
             random.choices(self.magic_potions_list, weights=[0.05, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
