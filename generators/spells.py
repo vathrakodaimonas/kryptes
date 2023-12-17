@@ -190,7 +190,101 @@ class SpellGenerator:
 
         return f'Περγαμηνή: {spell_list}'
 
+    def generate_grimoire(self):
+        magic_user_level = int(input('Select magic user level(1-12) '))
+        grimoire_spells = []
+        if magic_user_level == 1:
+            grimoire_spells.append(random.choice(self.first_level_spells))
+        elif magic_user_level == 2:
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+        elif magic_user_level == 3:
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            grimoire_spells.append(random.choice(self.second_level_spells))
+        elif magic_user_level == 4:
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+        elif magic_user_level == 5:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            grimoire_spells.append(random.choice(self.third_level_spells))
+        elif magic_user_level == 6:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            grimoire_spells.append(random.choice(self.third_level_spells))
+        elif magic_user_level == 7:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.third_level_spells))
+            grimoire_spells.append(random.choice(self.fourth_level_spells))
+        elif magic_user_level == 8:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.third_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.fourth_level_spells))
+        elif magic_user_level == 9:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.third_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.fourth_level_spells))
+            grimoire_spells.append(random.choice(self.fifth_level_spells))
+        elif magic_user_level == 10:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.third_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.fourth_level_spells))
+            for _ in range(2):
+                grimoire_spells.append(random.choice(self.fifth_level_spells))
+        elif magic_user_level == 11:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.third_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.fourth_level_spells))
+            for _ in range(3):
+                grimoire_spells.append(random.choice(self.fifth_level_spells))
+        elif magic_user_level == 12:
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.first_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.second_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.third_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.fourth_level_spells))
+            for _ in range(4):
+                grimoire_spells.append(random.choice(self.fifth_level_spells))
+            grimoire_spells.append(random.choice(self.sixth_level_spells))
+
+        return f'Γριμόριο: {grimoire_spells}'
+
+
 if __name__ == '__main__':
     a = SpellGenerator()
-    b = a.generate_scroll()
-    c=1
+    b = a.generate_grimoire()
+    c = 1
