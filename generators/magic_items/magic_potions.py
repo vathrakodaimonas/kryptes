@@ -1,7 +1,7 @@
 import random
 
 
-class MagicPotionGenerator():
+class MagicPotionGenerator:
     def __init__(self):
         self.potion_container_list = [
             'Γυάλινο',

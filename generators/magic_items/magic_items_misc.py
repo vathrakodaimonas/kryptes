@@ -1,7 +1,7 @@
 import random
 
 
-class MiscMagicItemGenerator():
+class MiscMagicItemGenerator:
     def __init__(self):
         self.misc_magic_items_list = [
             'Αθόρυβες Μπότες',
@@ -41,11 +41,13 @@ class MiscMagicItemGenerator():
         self.misc_magic_item = ''
 
     def determine_misc_magic_item(self):
-
         self.misc_magic_item = ' '.join(random.choices(self.misc_magic_items_list,
-                                                  weights=[0.08, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.08,
-                                                           0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.08, 0.03,
-                                                           0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
-                                                           0.03]
-                                                  ))
+                                                       weights=[0.08, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
+                                                                0.08,
+                                                                0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
+                                                                0.08, 0.03,
+                                                                0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03, 0.03,
+                                                                0.03, 0.03,
+                                                                0.03]
+                                                       ))
         return self.misc_magic_item

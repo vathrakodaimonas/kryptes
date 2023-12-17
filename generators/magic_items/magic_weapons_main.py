@@ -2,7 +2,7 @@ import random
 from generators.magic_items.magic_weapons import *
 
 
-class MagicWeaponGenerator():
+class MagicWeaponGenerator:
     def __init__(self):
         self.magic_weapons_attribute_list = [
             "Καταραμένο",

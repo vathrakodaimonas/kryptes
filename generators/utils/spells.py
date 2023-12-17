@@ -1,0 +1,196 @@
+import random
+from generators.utils import Dice
+
+
+class SpellGenerator:
+    def __init__(self):
+        self.first_level_spells = [
+            "Αλλαγή Όψης",
+            "Ανίχνευση Κακόβουλων Δυνάμεων",
+            "Ανίχνευση Μαγείας",
+            "Αποκρυπτογράφηση",
+            "Αποτροπαϊκή Επωδός",
+            "Ασφαλής Πτώση",
+            "Αφανής Αρωγός",
+            "Γητεία",
+            "Διαταγή",
+            "Εγγαστριμυθία",
+            "Εξορκισμός",
+            "Κλείσιμο Πληγής",
+            "Κράτημα Πύλης",
+            "Μαγική Προστασία",
+            "Μαγικός Μύδρος",
+            "Σκαρφάλωμα Αράχνης",
+            "Ύπνωση",
+            "Φως"
+        ]
+        self.second_level_spells = [
+            "Αιώρηση",
+            "Ανίχνευση Σκέψεων",
+            "Αορατότητα",
+            "Εντοπισμός Αντικειμένου",
+            "Ηρωισμός",
+            "Ήχος",
+            "Θηριολαλία",
+            "Ιστός",
+            "Κάλεσμα Οικείου",
+            "Μαγικό Άνοιγμα",
+            "Μαγικό Κλείδωμα",
+            "Όραση Αοράτων",
+            "Πολλαπλά Είδωλα",
+            "Ρώμη",
+            "Σιωπή",
+            "Σκοτάδι",
+            "Τύφλωση",
+            "Φασματική Εκδήλωση"
+        ]
+        self.third_level_spells = [
+            "Ακινητοποίηση",
+            "Ακύρωση Μαγείας",
+            "Αποτροπαϊκός Κύκλος",
+            "Βραδύτητα",
+            "Γλωσσολαλία",
+            "Επικοινωνία με Πνεύμα Νεκρού",
+            "Ερυθρόραση",
+            "Ίαση Νόσων",
+            "Κεραυνοπληξία",
+            "Προστασία από Βλήματα",
+            "Πτήση",
+            "Πύρινη Σφαίρα",
+            "Σπάσιμο Κατάρας",
+            "Σφαίρα Αορατότητας",
+            "Ταχύτητα",
+            "Τηλαισθησία",
+            "Υποβολή",
+            "Υποβρύχια Αναπνοή"
+        ]
+        self.fourth_level_spells = [
+            "Αόρατο Μάτι",
+            "Γητεία Θηρίου",
+            "Διαστατική Πύλη",
+            "Εξουδετέρωση Δηλητηρίων",
+            "Επούλωση Τραυμάτων",
+            "Θέριεμα Φυτών",
+            "Μαγεμένο Όπλο",
+            "Μαζική Απόκρυψη",
+            "Μεταμόρφωση Άλλου",
+            "Μεταμόρφωση Εαυτού",
+            "Μίασμα",
+            "Παγοθύελλα",
+            "Παραισθησιακό Τοπίο",
+            "Πύρινο Τείχος",
+            "Σύγχυση",
+            "Τείχος Πάγου",
+            "Τρόμος",
+            "Ψευδής Τοίχος"
+        ]
+        self.fifth_level_spells = [
+            "Ακινητοποίηση Θηρίου",
+            "Αναγέννηση",
+            "Αποκατάσταση",
+            "Ατσάλινο Τείχος",
+            "Επικοινωνία με Ανώτερα Πεδία",
+            "Κάλεσμα Στοιχειακού Όντος",
+            "Κρετινισμός",
+            "Κώνος Ψύχους",
+            "Μετουσίωση Πέτρας σε Λάσπη",
+            "Νεκρανάσταση",
+            "Ξύπνημα Νέρτερων",
+            "Όνειρο",
+            "Πέρασμα από Τοίχο",
+            "Πέτρινο Τείχος",
+            "Τηλεκίνηση",
+            "Τηλεμεταφορά",
+            "Τοξικό Νέφος",
+            "Ψυχοδοχείο"
+        ]
+        self.sixth_level_spells = [
+            "Αληθινή Όραση",
+            "Αόρατος Διώκτης",
+            "Απώθηση",
+            "Δαιμονική Φρουρά",
+            "Δέσμευση",
+            "Έλεγχος Καιρού",
+            "Εμφύσηση Ζωής",
+            "Εξαΰλωση",
+            "Κακοδαίμονας",
+            "Κατοπτρική Προβολή",
+            "Μετακίνηση Εδάφους",
+            "Μετεμψύχωση",
+            "Μετουσίωση Πέτρας σε Σάρκα",
+            "Ξιφοθύελλα",
+            "Ξόρκι Θανάτου",
+            "Σεισμός",
+            "Φραγμός Μαγείας",
+            "Φυλάκιση"
+        ]
+
+    def generate_scroll(self):
+        scroll_result = Dice.d66()
+        scroll_number = 0
+        cursed = False
+        exorcism = False
+        protection = False
+        protection_from_magic = False
+        treasure_map = False
+        spell_list = []
+
+        if scroll_result in range(11, 17):
+            scroll_number = 1
+        elif scroll_result in range(21, 25):
+            scroll_number = 2
+        elif scroll_result in range(25, 32):
+            scroll_number = 3
+        elif scroll_result in range(32, 35):
+            scroll_number = 5
+        elif scroll_result in range(35, 37):
+            scroll_number = 7
+        elif scroll_result in range(41, 43):
+            cursed = True
+        elif scroll_result in range(43, 45):
+            exorcism = True
+        elif scroll_result in range(45, 52):
+            protection = True
+        elif scroll_result in range(52, 54):
+            protection_from_magic = True
+        else:
+            treasure_map = True
+
+        if scroll_number:
+            for _ in range(scroll_number + 1):
+                scroll_level = random.randint(1, 6)
+                if scroll_level == 1:
+                    spell = random.choice(self.first_level_spells)
+                    spell_list.append(spell)
+                elif scroll_level == 2:
+                    spell = random.choice(self.second_level_spells)
+                    spell_list.append(spell)
+                elif scroll_level == 3:
+                    spell = random.choice(self.third_level_spells)
+                    spell_list.append(spell)
+                elif scroll_level == 4:
+                    spell = random.choice(self.fourth_level_spells)
+                    spell_list.append(spell)
+                elif scroll_level == 5:
+                    spell = random.choice(self.fifth_level_spells)
+                    spell_list.append(spell)
+                elif scroll_level == 6:
+                    spell = random.choice(self.sixth_level_spells)
+                    spell_list.append(spell)
+        elif cursed:
+            spell_list.append('Καταραμένη')
+        elif exorcism:
+            spell_list.append('Περγαμηνή εξορκισμού')
+        elif protection:
+            spell_list.append('Περγαμηνή προστασίας')
+        elif protection_from_magic:
+            spell_list.append('Περγαμηνή προστασίας από μαγεία')
+        elif treasure_map:
+            spell_list.append('Χάρτης θησαυρού')
+
+        return f'Περγαμηνή: {spell_list}'
+
+if __name__ == '__main__':
+    a = SpellGenerator()
+    b = a.generate_scroll()
+    c=1

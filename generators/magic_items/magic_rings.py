@@ -1,7 +1,7 @@
 import random
 
 
-class MagicRingGenerator():
+class MagicRingGenerator:
     def __init__(self):
         self.magic_rings_list = [
             'Δαχτυλίδι Αδυναμίας',

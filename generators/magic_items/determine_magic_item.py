@@ -2,6 +2,7 @@ import random
 
 from generators.utils.dice import Dice
 from generators.magic_items import *
+from generators.utils.spells import SpellGenerator
 
 
 class MagicItemGenerator():
@@ -55,7 +56,7 @@ class MagicItemGenerator():
 
         magic_items_list = []
 
-        for _ in range(num_magic_items):
+        for _ in range(num_magic_items + 1):
             result = Dice.d66()
             if result in range(11, 24):
                 magic_item = 'Μαγικό όπλο'
@@ -84,6 +85,8 @@ class MagicItemGenerator():
                 magic_item = MagicArmourGenerator().determine_magic_armour()
             elif magic_item == 'Μαγικό όπλο':
                 magic_item = MagicWeaponGenerator().determine_magic_weapon()
+            elif magic_item == 'Μαγική περγαμηνή':
+                magic_item = SpellGenerator().generate_scroll()
 
             magic_items_list.append(magic_item)
 

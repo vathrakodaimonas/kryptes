@@ -133,4 +133,4 @@ class IntelligentSwordGenerator():
         self.intelligent_sword = 'Νοήμον Ξίφος ' + ''.join(
             random.choices(self.intelligent_sword_weapon_bonus, weights=[0.6, 0.25,
                                                                          0.15])) + f'. Δυνάμεις: {powers}. Ξόρκια: {spells}. {extra_language} {ambition} {self.roll_intelligent_sword_personality()}'
-        print(self.intelligent_sword)
+        return self.intelligent_sword
