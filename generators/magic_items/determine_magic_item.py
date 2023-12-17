@@ -8,7 +8,7 @@ from generators.spells import SpellGenerator
 class MagicItemGenerator():
     def roll_magic_items(self, treasure_type: int):
         treasure_result = Dice.d66()
-        print(f'Treasure result is {treasure_result}')
+
         treasure_type = treasure_type
 
         if treasure_type == 0 and treasure_result == 66:

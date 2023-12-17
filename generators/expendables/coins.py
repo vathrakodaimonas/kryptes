@@ -20,21 +20,21 @@ class CoinGenerator:
         # bronze coins
         result_bronze_coins = Dice.two_D6()
         if result_bronze_coins >= 8:
-            bronze_coins = f'Bronze coins: {Dice.one_D6() * self.bronze_coins_list[treasure_type]}'
+            bronze_coins = f'Χάλκινα νομίσματα: {Dice.one_D6() * self.bronze_coins_list[treasure_type]}'
             if bronze_coins:
                 coins.append(bronze_coins)
 
         # silver coins
         silver_coins_result = Dice.two_D6()
         if silver_coins_result >= 8:
-            silver_coins = f'Silver coins: {Dice.one_D6() * self.silver_coins_list[treasure_type]}'
+            silver_coins = f'Αργυρά νομίσματα: {Dice.one_D6() * self.silver_coins_list[treasure_type]}'
             if silver_coins:
                 coins.append(silver_coins)
 
         # silver coins
         gold_coins_result = Dice.two_D6()
         if gold_coins_result >= 9:
-            gold_coins = f'Gold coins: {Dice.one_D6() * self.silver_coins_list[treasure_type]}'
+            gold_coins = f'Χρυσά νομίσματα: {Dice.one_D6() * self.silver_coins_list[treasure_type]}'
             if gold_coins:
                 coins.append(gold_coins)
 
