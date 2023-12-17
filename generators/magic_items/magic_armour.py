@@ -3,9 +3,12 @@ import random
 from generators.utils.dice import Dice
 
 
-class MagicArmourGenerator():
+class MagicArmourGenerator:
     def __init__(self):
-        self.magic_armour_type_light_list = ['Σκουτάρι', 'Σκούτα', 'Δερμάτινη', 'Καββάδιο']
+        self.magic_armour_type_light_list = ['Σκουτάρι',
+                                             'Σκούτα',
+                                             'Δερμάτινη',
+                                             'Καββάδιο']
         self.special_armours_list = [
             'Αιθέριος Θώρακας',
             'Αποτρόπαιος Θώρακας',

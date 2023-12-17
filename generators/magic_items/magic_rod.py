@@ -2,7 +2,7 @@ import random
 import regex as re
 
 
-class MagicRodGenerator():
+class MagicRodGenerator:
     def __init__(self):
         self.magic_rods_list = [
             'Ραβδί Ακύρωσης',

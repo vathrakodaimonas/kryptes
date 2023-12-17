@@ -18,7 +18,7 @@ def create_treasure():
     treasure += f'Jewels: {jewels}\n'
 
     if magic_items:
-        treasure += f'Magic items: {", ".join(magic_items)}'
+        treasure += f'Magic items: {magic_items}'
     else:
         treasure += 'No magic items'
 
